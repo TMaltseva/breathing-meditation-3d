@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/breathing-meditation-3d/static/css/main.17277696.css",
+    "main.js": "/breathing-meditation-3d/static/js/main.0768b1aa.js",
+    "static/js/453.e094fb8b.chunk.js": "/breathing-meditation-3d/static/js/453.e094fb8b.chunk.js",
+    "index.html": "/breathing-meditation-3d/index.html",
+    "main.17277696.css.map": "/breathing-meditation-3d/static/css/main.17277696.css.map",
+    "main.0768b1aa.js.map": "/breathing-meditation-3d/static/js/main.0768b1aa.js.map",
+    "453.e094fb8b.chunk.js.map": "/breathing-meditation-3d/static/js/453.e094fb8b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17277696.css",
+    "static/js/main.0768b1aa.js"
+  ]
+}
