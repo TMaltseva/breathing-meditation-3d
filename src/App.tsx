@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Stats, Preload } from '@react-three/drei';
-import BreathingSphere from './components/BreathingSphere';
+import EnhancedOrganicSphere from './components/OrganicBreathingSphere/EnhancedOrganicSphere';
 import Lighting, { LightingPresets } from './components/Lighting';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import BlurredBackground from './components/BlurredBackground/BlurredBackground';
@@ -42,18 +42,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner message="Loading meditation space..." />}>
           <Lighting {...LightingPresets.meditative} />
           
-          <BreathingSphere
-            radius={1.5}
-            quality={64}
-            breathSpeed={0.4}
-            scaleAmplitude={0.5}
-            enableRotation={false}
-            rotationSpeed={0.02}
-            colorStyle="vibrant"
-            syncWithBreath={true}
-            metalness={0.02}
-            roughness={0.15}
-          />
+          <EnhancedOrganicSphere preset="meditative" />
           
           <Preload all />
         </Suspense>
