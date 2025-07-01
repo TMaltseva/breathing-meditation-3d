@@ -42,7 +42,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner message="Loading meditation space..." />}>
           <Lighting {...LightingPresets.meditative} />
           
-          <EnhancedOrganicSphere preset="meditative" />
+          <EnhancedOrganicSphere preset="dynamic" />
           
           <Preload all />
         </Suspense>

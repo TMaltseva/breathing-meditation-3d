@@ -1,4 +1,3 @@
-export { noiseGLSL } from "./noise.glsl.js";
 export { organicVertexShader } from "./organicVertex.glsl.js";
 export { organicFragmentShader } from "./organicFragment.glsl.js";
 

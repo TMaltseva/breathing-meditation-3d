@@ -11,7 +11,7 @@ import { colorPalettes } from '../../constants/constants'
 
 export default function OrganicBreathingSphere({
   radius = 1.5,
-  quality = 128,
+  quality = 256,
   breathSpeed = 0.35,
   scaleAmplitude = 0.15,
   baseHue = 0.75,
@@ -23,8 +23,6 @@ export default function OrganicBreathingSphere({
   noiseScale = [2.0, 4.0, 8.0] as [number, number, number],
   noiseSpeed = 0.2,
   emissiveIntensity = 0.3,
-  shaderConfig = 'organic',
-  debugMode = false
 }: OrganicSphereProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
@@ -34,32 +32,27 @@ export default function OrganicBreathingSphere({
     [radius, quality]
   );
 
- 
-
   const shaderMaterial = useMemo(() => {
-    const material = new THREE.ShaderMaterial({
-      vertexShader: organicVertexShader,
-      fragmentShader: organicFragmentShader,
+    return new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
         uBreathPhase: { value: 0 },
-        uAmplitude: { value: noiseAmplitude },
-        uFrequency: { value: 1.0 },
-        uNoiseScale: { value: new THREE.Vector3(...noiseScale) },
-        uNoiseSpeed: { value: noiseSpeed },
-        uBreathAmplitude: { value: scaleAmplitude },
-        uColor: { value: new THREE.Vector3(0.9, 0.8, 1.0) },
-        uAccentColor: { value: new THREE.Vector3(0.8, 0.6, 1.0) },
-        uMetalness: { value: 0.02 },
-        uRoughness: { value: 0.15 },
-        uEmissiveIntensity: { value: emissiveIntensity },
+        uColor: { value: new THREE.Color(0.1, 0.2, 0.25) },
+        uAccentColor: { value: new THREE.Color(0.3, 0.25, 0.4) },
+        uBrightness: { value: 0.8 },
+        uSaturation: { value: 0.5 },
+        uEmissiveIntensity: { value: 0.3 },
+        uAmplitude: { value: 0.25 },
+        uNoiseScale: { value: new THREE.Vector3(1.5, 2.5, 3.5) },
+        uNoiseSpeed: { value: 0.1 },
+        uBreathAmplitude: { value: 0.08 }
       },
+      vertexShader: organicVertexShader,
+      fragmentShader: organicFragmentShader,
       transparent: true,
-      side: THREE.DoubleSide,
+      side: THREE.DoubleSide
     });
-
-    return material;
-  }, [noiseAmplitude, noiseScale, noiseSpeed, emissiveIntensity, scaleAmplitude]);
+  }, []);
 
   useFrame((state) => {
     if (!meshRef.current || !materialRef.current) return;

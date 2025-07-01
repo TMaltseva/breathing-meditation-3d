@@ -26,7 +26,7 @@ export function EnhancedOrganicSphere({
       noiseAmplitude: 0.35,
       noiseSpeed: 0.25,
       colorStyle: 'vibrant',
-      emissiveIntensity: 0.3,
+      emissiveIntensity: 0.1,
       enableRotation: true,
       rotationSpeed: 0.03,
     },
